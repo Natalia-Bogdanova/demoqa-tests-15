@@ -1,3 +1,5 @@
+import javax.tools.JavaCompiler
+
 plugins {
     id 'java-library'
 }
@@ -8,10 +10,16 @@ repositories {
 
 dependencies {
     testImplementation (
-            'org.junit.jupiter:junit-jupiter:5.9.0'
+            'com.codeborne:selenide:6.7.4',
+            'org.junit.jupiter:junit-jupiter:5.9.0',
+            'org.slf4j:slf4j-simple:2.0.0'
     )
 }
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(JavaCompiler) {
+    options.encoding = 'UTF-8'
 }
